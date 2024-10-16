@@ -1,5 +1,28 @@
 spring:
   application:
     name: chat-service
+
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-id: e2ff188ee9838dfba4e161864116c00f
+            client-secret: UKeOzrBMi7vGlUScTUukHp9TGW4RGyHZ
+            scope:
+              - profile_nickname
+            redirect-uri: "http://localhost:8089/login/oauth2/code/kakao"
+            client-name: kakao
+            authorization-grant-type: authorization_code
+            client-authentication-method: client_secret_post
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
 server:
   port: 8089
+
+
+
