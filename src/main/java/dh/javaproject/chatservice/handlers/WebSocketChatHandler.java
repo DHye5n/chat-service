@@ -29,16 +29,17 @@ public class WebSocketChatHandler extends TextWebSocketHandler {
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
 
-        log.info("{} sent {}", session.getId(), message.getPayload());
+            log.info("{} sent {}", session.getId(), message.getPayload());
 
-        this.webSocketSessionHashMap.values()
-                .forEach(webSocketSession -> {
-                    try {
-                        webSocketSession.sendMessage(message);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
+            // Handle message processing logic here, e.g., broadcasting
+            this.webSocketSessionHashMap.values().forEach(webSocketSession -> {
+                try {
+                    webSocketSession.sendMessage(message);
+                } catch (IOException e) {
+                    log.error("Error sending message to session {}", webSocketSession.getId(), e);
+                }
+            });
+
 
     }
 

@@ -41,6 +41,11 @@ spring:
             user-name-attribute: id
 server:
   port: 8089
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 
 
 

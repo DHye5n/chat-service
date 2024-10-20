@@ -19,20 +19,20 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
-    private Long id;
+    Long id;
 
-    private String email;
+    String email;
 
-    private String nickname;
+    String nickname;
 
-    private String name;
+    String name;
 
     @Enumerated(EnumType.STRING)
-    private Gender gender;
+    Gender gender;
 
-    private String phoneNumber;
+    String phoneNumber;
 
-    private LocalDate birthday;
+    LocalDate birthday;
 
-    private String role;
+    String role;
 }

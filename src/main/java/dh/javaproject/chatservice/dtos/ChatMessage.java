@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ChatMessage {
 
-    private String sender;
-    private String message;
+    String sender;
+    String message;
 }
