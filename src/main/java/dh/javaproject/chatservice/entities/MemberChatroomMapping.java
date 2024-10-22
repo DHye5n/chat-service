@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -25,4 +27,10 @@ public class MemberChatroomMapping {
     @ManyToOne
     @JoinColumn(name = "chatroom_id")
     Chatroom chatroom;
+
+    LocalDateTime lastCheckedAt;
+
+    public void updateLastCheckedAt() {
+        this.lastCheckedAt = LocalDateTime.now();
+    }
 }

@@ -1,10 +1,7 @@
 package dh.javaproject.chatservice.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -28,6 +25,12 @@ public class Chatroom {
     Set<MemberChatroomMapping> memberChatroomMappingSet;
 
     LocalDateTime createdAt;
+
+    @Transient
+    @Setter
+    Boolean hasNewMessage;
+
+
 
     public MemberChatroomMapping addMember(Member member) {
         if (this.getMemberChatroomMappingSet() == null) {

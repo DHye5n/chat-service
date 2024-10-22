@@ -43,14 +43,15 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
         log.info("OAuth2 User Attributes: {}", attributeMap);
 
+
         Member member = Member.builder()
                 .email((String) attributeMap.get("email"))
                 .nickname((String) ((Map)attributeMap.get("profile")).get("nickname"))
                 .name((String) attributeMap.get("name"))
                 .phoneNumber((String) attributeMap.get("phone_number"))
                 .gender(Gender.valueOf(((String) attributeMap.get("gender")).toUpperCase()))
-                .birthday(getBirthDay(attributeMap))
-                .role("USER_ROLE")
+                .birthDay(getBirthDay(attributeMap))
+                .role("ROLE_USER")
                 .build();
 
         return memberRepository.save(member);
